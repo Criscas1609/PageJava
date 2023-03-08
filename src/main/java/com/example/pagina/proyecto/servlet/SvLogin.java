@@ -24,6 +24,9 @@ public class SvLogin extends HttpServlet {
         String name = request.getParameter("userName");
         String password = request.getParameter("password");
         boolean c = mfc.getStore().getClientService().validate(name, password);
-        if (c) response.sendRedirect("/products.jsp");
+        if (c){
+            mfc.getStore().getProductService().deleteCart();
+            response.sendRedirect("/products.jsp");
+        }
     }
 }

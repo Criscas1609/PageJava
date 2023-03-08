@@ -8,8 +8,11 @@ import java.util.ArrayList;
 
 
 public class ClientServiceImpl implements ClientService {
-    public ArrayList<Client> usersList = new ArrayList<Client>();
-    public Client client;
+    private ArrayList<Client> usersList = new ArrayList<Client>();
+
+    public ArrayList<Client> getUsersList() {
+        return usersList;
+    }
     public boolean validate(String username, String password){
         for (Client user : usersList){
             if (user.getUsername().equals(username) && user.getPassword().equals(password)){
@@ -20,7 +23,6 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public void createClient(String name, String lastName, String username, String password, String phone, String address) {
-        client = new Client(name, lastName, phone, address, username, password);
-        usersList.add(client);
+        usersList.add(new Client(name, lastName, phone, address, username, password));
     }
 }

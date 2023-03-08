@@ -15,6 +15,13 @@ public class SvProducts extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession session = request.getSession();
+        HttpSession session2= request.getSession();
+        session.setAttribute("productsList",mfc.getStore().getProductService().getProductsList());
+        session2.setAttribute("userList",mfc.getStore().getClientService().getUsersList());
+        response.sendRedirect("/cart.jsp");
+
+
     }
 
     @Override

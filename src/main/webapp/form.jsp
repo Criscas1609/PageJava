@@ -22,7 +22,7 @@
 <div class="container">
     <main>
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="comida-y-bebida-imagen-animada-0151.gif" alt="" width="72" height="57">
+            <img class="d-block mx-auto mb-4" src="bootstrap/css/comida-y-bebida-imagen-animada-0151.gif" alt="" width="72" height="57">
             <h2>Formulario</h2>
             <p class="lead">Crear un nuevo usuario para poder hacer pedidos en la pagina web</p>
         </div>
