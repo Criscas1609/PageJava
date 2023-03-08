@@ -19,12 +19,12 @@
     <label for="inputEmail" class="visually-hidden">Email address</label>
     <input type="text" id="inputEmail" name="userName" class="d-inline-flex form-control text-center w-75" required="" autofocus="" placeholder="Usuario">
     <label for="inputPassword"  class="visually-hidden">Password</label>
-    <input type="password" id="inputPassword" name="password" class="d-inline-flex form-control text-center w-75" required="" placeholder="Contraseña">
+    <input type="password" id="inputPassword" name="password" class="d-inline-flex form-control text-center w-75" required="" placeholder="Contrase&ntilde;a">
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary text-center w-75" type="submit">Entre</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
-    <a href="${pageContext.request.contextPath}/form.jsp">regístrese</a>
+    <a href="${pageContext.request.contextPath}/form.jsp">Reg&iacute;strese</a>
 </form>
 <script src="assets/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
