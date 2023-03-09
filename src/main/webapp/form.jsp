@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: Cristhian
   Date: 7/03/2023
@@ -30,52 +30,66 @@
             <div class="col-md-7 col-lg-8">
                 <h4 class="mb-3">Datos personales</h4>
                 <form action="${pageContext.request.contextPath}/SvForm" method="POST" class="needs-validation" novalidate="">
+                    <%
+                        Map<String,String> mistakeList = (Map<String, String>) request.getSession().getAttribute("mistakeList");
+                    %>
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">Nombres</label>
-                            <input name="name" type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+                            <input name="name" type="text" class="form-control" id="firstName" placeholder="">
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("name")) {
+                                    mistakeList.get("name");
+                            %>
+                            <div class="alert alert-danger">Nombre valido requerido</div>
+                            <%}%>
                         </div>
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Apellidos</label>
-                            <input name="lastName" type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
+                            <input name="lastName" type="text" class="form-control" id="lastName" placeholder="">
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("lastName")) {
+                            %>
+                            <div class="alert alert-danger">Apellido valido requerido</div>
+                            <%}%>
                         </div>
                         <div class="col-12">
                             <label for="username" class="form-label">Usuario</label>
                             <div class="input-group"><span class="input-group-text">@</span>
-                                <input name="userName" type="text" class="form-control" id="username" placeholder="Usuario" required="">
-                                <div class="invalid-feedback">
-                                    Your username is required.
-                                </div>
+                                <input name="userName" type="text" class="form-control" id="username" placeholder="Usuario">
                             </div>
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("userName")) {
+                            %>
+                            <div class="alert alert-danger">Nombre de usuario valido requerido</div>
+                            <%}%>
                         </div>
                         <div class="col-12">
                             <label for="email" class="form-label">Contraseña</label>
                             <input name="password" type="password" class="form-control" id="email" placeholder="Contraseña">
-                            <div class="invalid-feedback">
-                                Please enter a valid password
-                            </div>
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("password")) {
+                            %>
+                            <div class="alert alert-danger">Contraseña valida requerida</div>
+                            <%}%>
                         </div>
                         <div class="col-12">
                             <label for="address" class="form-label">Dirección</label>
-                            <input name="address" type="text" class="form-control" id="address" placeholder="Carrera 15 No. 90" required="">
-                            <div class="invalid-feedback">
-                                Please enter your address.
-                            </div>
+                            <input name="address" type="text" class="form-control" id="address" placeholder="Carrera 15 No. 90" >
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("address")) {
+                            %>
+                            <div class="alert alert-danger">Dirección válida requerida</div>
+                            <%}%>
                         </div>
                         <div class="col-12">
                             <label for="address2" class="form-label">Telefono</label>
                             <input name="phone" type="text" class="form-control" id="address2" placeholder="317894512">
-                        </div>
-                        <div class="col-md-5">
-                            <div class="invalid-feedback">
-                                Please select a valid phone number
-                            </div>
+                            <%
+                                if(mistakeList != null && mistakeList.containsKey("phone")) {
+                            %>
+                            <div class="alert alert-danger">Teléfono valido requerido</div>
+                            <%}%>
                         </div>
                     </div>
                     <hr class="my-4">
@@ -90,27 +104,6 @@
 </div>
 <script src="assets/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict'
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-    })()
-</script>
 </body>
 </html>

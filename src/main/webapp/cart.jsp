@@ -39,7 +39,7 @@
   <div class="checkbox mb-3">
   </div>
 <%}%>
-  <button class="btn btn-lg btn-primary text-center w-75" onclick="alert('Pedido hecho con éxito, mas instrucciones al WhatsApp')"
+  <button class="btn btn-lg btn-primary text-center w-75" onclick="alert('Pedido hecho con exito, mas instrucciones al WhatsApp')"
           href="/index.jsp" >Hacer pedido</button>
 
 

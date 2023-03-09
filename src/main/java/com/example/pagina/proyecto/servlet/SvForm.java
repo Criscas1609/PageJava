@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -27,7 +28,16 @@ public class SvForm extends HttpServlet {
         String password = request.getParameter("password");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
-        mfc.getStore().getClientService().createClient(name,lastName,username,password,phone,address);
-        response.sendRedirect("/index.jsp");
+
+        mfc.getStore().getClientService().validateInputs(name,lastName,username,password,phone,address);
+
+        if(mfc.getStore().getClientService().getMistakeList().isEmpty()) {
+            response.sendRedirect("/index.jsp");
+        }else {
+            HttpSession session = request.getSession();
+            session.setAttribute("mistakeList",mfc.getStore().getClientService().getMistakeList());
+            getServletContext().getRequestDispatcher("/form.jsp").forward(request,response);
+
+        }
     }
 }
