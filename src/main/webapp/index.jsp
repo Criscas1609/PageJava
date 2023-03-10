@@ -26,6 +26,9 @@
     <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
     <a href="${pageContext.request.contextPath}/form.jsp">Reg&iacute;strese</a>
 </form>
+<form action="${pageContext.request.contextPath}/SvLogin" method="GET" class="h-auto text-center w-50" style="align-self: center;">
+    <button class="btn btn-lg btn-primary text-center w-75" type="submit">Base de datos</button>
+</form>
 <script src="assets/js/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <div class="container vh-100 w-50">
